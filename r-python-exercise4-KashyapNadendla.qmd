@@ -1,0 +1,62 @@
+---
+title: "r-python-exercise4-KashyapNadendla"
+author: "Kashyap Nadendla"
+format: html
+editor: visual
+---
+
+# Regression in R
+
+```{r}
+
+if (!require(pacman))
+  install.packages("pacman")
+
+pacman::p_load(tidymodels,
+               tidyverse,
+               ranger,
+               randomForest,
+               glmnet,
+               gridExtra)
+
+# Global ggplot theme
+theme_set(theme_bw() + theme(legend.position = "top"))
+```
+
+## Synthetic Data Generation
+
+```{r}
+
+# Parameters
+seed <- 1            # seed for random number generation 
+numInstances <- 200  # number of data instances
+
+# Setting the seed
+set.seed(seed)
+
+# Generating data
+X <- matrix(runif(numInstances), ncol=1)
+y_true <- -3*X + 1 
+y <- y_true + matrix(rnorm(numInstances), ncol=1)
+
+# Plot
+ggplot() +
+  geom_point(aes(x=X, y=y), color="black") +
+  geom_line(aes(x=X, y=y_true), color="blue", linewidth=1) +
+  ggtitle('True function: y = -3X + 1') +
+  xlab('X') +
+  ylab('y')
+```
+
+## Multiple Linear Regression
+
+### Step 1: Split the data into Training and Test sets
+
+```{r}
+
+
+```
+
+```{r}
+
+```
